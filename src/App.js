@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import './App.css';
+import { Flowers } from './Flowers';
+import { Add } from './Add';
+import { Link, Route, Switch } from "react-router-dom";
+import { Editbouquet } from './Editbouquet';
+import { Bouquetdetail } from './Bouquetdetail';
+
+
+export function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <nav>
+        <ul>
+          <li><Link to="/bouquet">Bouquet</Link></li>
+          <li><Link to="/newbouquet">Add New Bouquet</Link></li>
+        </ul>
+      </nav>
+      <Switch>
+        <Route exact path="/bouquet">
+          <Flowers />
+        </Route>
+        <Route path="/newbouquet">
+          <Add />
+        </Route>
+        <Route path="/bouquet/edit/:id">
+          <Editbouquet />
+        </Route>
+        <Route path="/bouquet/detail/:id">
+          <Bouquetdetail />
+        </Route>
+      </Switch>
+
+
     </div>
   );
 }
 
-export default App;
+
