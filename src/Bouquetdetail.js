@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router';
+import { useHistory } from 'react-router';
 
 export function Bouquetdetail() {
     const { id } = useParams();
     const [bouquet, setBouquet] = useState({});
+    const history = useHistory();
     useEffect(() => {
         fetch(`https://6166c4e813aa1d00170a6717.mockapi.io/bouquet/${id}`,
             {
@@ -26,7 +28,7 @@ export function Bouquetdetail() {
             <div>
                 <p>{bouquet.explaination}</p>
             </div>
-
+            <button onClick={() => history.goBack()}>BACK</button>
         </div>
     );
 }

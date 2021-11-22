@@ -7,6 +7,11 @@
 font-family: 'Lemonada', cursive;
 font-family: 'Merienda', cursive; */
 }
+.notfound{
+  width:80%;
+  height:400px;
+  object-fit: cover;
+}
 .flower-pic{
   display:inline;
   grid-template-columns: repeat(3,1fr);
